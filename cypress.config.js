@@ -10,22 +10,34 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 720,
     
- 
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 30000,
     
     video: false,                    
-    screenshotOnRunFailure: true,    
+    screenshotOnRunFailure: true,
     
-    // Configuración de carpetas
     screenshotsFolder: 'cypress/screenshots',
+    videosFolder: 'cypress/videos',
     
     stopOnFirstFailure: false,
     
     specPattern: 'cypress/e2e/**/*.{feature,cy.js,cy.jsx,cy.ts,cy.tsx}',
     
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      charts: true,
+      reportPageTitle: 'Reporte de Testing - Challenge Crowdar',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+      reportDir: 'cypress/reports',
+      reportFilename: 'reporte-ejecucion'
+    },
+    
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
+
+      require('cypress-mochawesome-reporter/plugin')(on);
 
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],

@@ -14,7 +14,13 @@
     "test:scenarios": "cypress run --spec 'cypress/e2e/features/**/*.feature' --config stopOnFirstFailure=false",
     "test:api": "cypress run --spec 'cypress/e2e/features/mercadolibre-api.feature'",
     "test:saucedemo": "cypress run --spec 'cypress/e2e/features/saucedemo-tests.feature'",
-    "test:all": "cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome"
+    "test:all": "cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome",
+    "test:with-reports": "npm run clean:reports && cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome && npm run generate:reports",
+    "test:failure-demo": "cypress run --spec 'cypress/e2e/features/saucedemo-testFailure.feature' --browser chrome && npm run generate:reports",
+    "clean:reports": "if exist cypress\\reports rmdir /s /q cypress\\reports && mkdir cypress\\reports\\cucumber-json",
+    "generate:reports": "node generate-cucumber-report.js",
+    "open:reports": "start cypress\\reports\\cucumber-html\\index.html",
+    "reports:full": "npm run clean:reports && npm run test:all && npm run generate:reports && npm run open:reports"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
@@ -38,6 +44,12 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
-    "cypress": "^14.5.3"
+    "@cucumber/html-formatter": "^21.13.0",
+    "cypress": "^14.5.3",
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "multiple-cucumber-html-reporter": "^3.9.3"
   }
 }

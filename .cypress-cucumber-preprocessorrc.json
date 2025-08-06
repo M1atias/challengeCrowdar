@@ -9,10 +9,14 @@
   },
   "html": {
     "enabled": true,
-    "output": "cypress/reports/cucumber-html-report.html"
+    "output": "cypress/reports/cucumber-html-simple.html"
   },
   "json": {
     "enabled": true,
-    "output": "cypress/reports/cucumber-report.json"
+    "output": "cypress/reports/cucumber-json/cucumber-report-[datetime].json"
+  },
+  "junit": {
+    "enabled": true,
+    "output": "cypress/reports/cucumber-junit.xml"
   }
 }

@@ -8,6 +8,8 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
+import 'cypress-mochawesome-reporter/register';
+
 Cypress.Commands.add('loginSauceDemo', (username, password = 'secret_sauce') => {
   cy.visit('/');
   cy.get('[data-test="username"]').type(username);
@@ -35,7 +37,6 @@ Cypress.Commands.add('completeCheckout', (firstName, lastName, postalCode) => {
   cy.get('[data-test="continue"]').click();
   cy.get('[data-test="finish"]').click();
 });
-
 
 Cypress.Commands.add('apiGet', (url, options = {}) => {
   const defaultOptions = {
@@ -99,7 +100,6 @@ Cypress.Commands.add('extractDepartments', (response) => {
   return cy.wrap(departments);
 });
 
-
 Cypress.Commands.add('login', (email, password) => {
   cy.get('[data-cy="email"]').type(email);
   cy.get('[data-cy="password"]').type(password);
@@ -113,4 +113,13 @@ Cypress.Commands.add('waitUntilVisible', (selector, options = {}) => {
 
 Cypress.Commands.add('scrollToElement', (selector) => {
   cy.get(selector).scrollIntoView();
+});
+
+Cypress.Commands.add('addTestContext', (title, value) => {
+  cy.addTestContext(`${title}: ${value}`);
+});
+
+Cypress.Commands.add('logTestStep', (step) => {
+  cy.log(`${step}`);
+  cy.addTestContext(`Paso ejecutado: ${step}`);
 });
