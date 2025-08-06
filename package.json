@@ -1,0 +1,39 @@
+{
+  "name": "challengecrowdar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:headed": "cypress run --headed",
+    "cypress:run:features": "cypress run --spec 'cypress/e2e/features/**/*.feature'",
+    "test:cucumber": "cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/e2e/step_definitions/**/*.{js,ts}",
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-messages.ndjson"
+    },
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-html-report.html"
+    },
+    "json": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-report.json"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "cypress": "^14.5.3"
+  }
+}
