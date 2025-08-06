@@ -32,3 +32,6 @@ yarn-error.log*
 /cypress/screenshots/
 /cypress/downloads/
 /cypress/reports/
+
+# Opcional: mantener solo capturas de scenarios fallidos en el repo
+# !/cypress/screenshots/SCENARIO_FAILED-*

@@ -10,7 +10,11 @@
     "cypress:run:chrome": "cypress run --browser chrome",
     "cypress:run:headed": "cypress run --headed",
     "cypress:run:features": "cypress run --spec 'cypress/e2e/features/**/*.feature'",
-    "test:cucumber": "cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome"
+    "test:cucumber": "cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome",
+    "test:scenarios": "cypress run --spec 'cypress/e2e/features/**/*.feature' --config stopOnFirstFailure=false",
+    "test:api": "cypress run --spec 'cypress/e2e/features/mercadolibre-api.feature'",
+    "test:saucedemo": "cypress run --spec 'cypress/e2e/features/saucedemo-tests.feature'",
+    "test:all": "cypress run --spec 'cypress/e2e/features/**/*.feature' --browser chrome"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,

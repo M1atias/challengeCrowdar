@@ -1,6 +1,6 @@
 import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor";
 
-// Pasos Given (Dados)
+
 Given("que estoy en la página principal", () => {
   cy.visit('/');
   cy.contains('Kitchen Sink').should('be.visible');
@@ -12,7 +12,6 @@ Given("que estoy en la página de acciones", () => {
   cy.url().should('include', '/commands/actions');
 });
 
-// Pasos When (Cuando)
 When("hago click en el enlace {string}", (linkText) => {
   cy.contains(linkText).click();
 });
@@ -25,7 +24,6 @@ When("hago click en el botón de acción", () => {
   cy.get('.action-btn').click();
 });
 
-// Pasos Then (Entonces)
 Then("debería estar en la página de acciones", () => {
   cy.url().should('include', '/commands/actions');
 });

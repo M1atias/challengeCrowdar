@@ -20,7 +20,7 @@ Then("debería estar en la página {string}", (url) => {
   cy.url().should('include', url);
 });
 
-Then("debería ver el título {string}", (titulo) => {
+Then("debería ver el encabezado {string}", (titulo) => {
   cy.contains('h1, h2, h3, h4, h5, h6', titulo).should('be.visible');
 });
 
