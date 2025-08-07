@@ -130,7 +130,6 @@ Ver `.cypress-cucumber-preprocessorrc.json` para configuración de reportes y st
 
 ## 📖 Documentación Adicional
 
-- [Configuración de Reportes](REPORTES.md) - Guía detallada de reportes
 - [Cypress Documentation](https://docs.cypress.io/)
 - [Cucumber Documentation](https://cucumber.io/docs/)
 
